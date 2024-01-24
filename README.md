@@ -1,3 +1,9 @@
+## Running
+
+```
+bundle exec jekyll serve --livereload
+```
+
 <div align="center">
   <p><em><strong>Disclaimer:</strong> The information here may vary depending on the version you're using.<br/>
   Please refer to the <code>README.md</code> bundled within the theme-gem for information specific to your version or by pointing
