@@ -3,6 +3,98 @@ layout: base
 ---
 
 <div class="home">
+
+  <!-- DOX O'CLOCK COUNTDOWN -->
+  <div id="countdown">
+    <h2 style="font-weight: 500; font-size: 1.5rem; margin-bottom: 0.25rem">DOX O'CLOCK</h1>
+    <div class="clock-numbers">
+      <div class="countdown-item">
+        <span id="days">00</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span id="hours">00</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span id="minutes">00</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span id="seconds">00</span>
+        <span class="label">Seconds</span>
+      </div>
+    </div>
+    <br />
+    <p style="font-size: 1rem;">0xTARC is: ██████████</h1>
+
+  </div>
+
+  <style>
+    #countdown {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 15px;
+    }
+
+    .clock-numbers{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .countdown-item span {
+      font-size: 48px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .countdown-item .label {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 5px;
+    }
+  </style>
+
+  <script>
+    function updateCountdown() {
+      const now = new Date();
+      const targetDate = new Date(Date.UTC(now.getUTCFullYear(), 8, 10, 0, 0, 0));
+      
+      if (now > targetDate) {
+        targetDate.setUTCFullYear(targetDate.getUTCFullYear() + 1);
+      }
+
+      const difference = targetDate - now;
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+  <!-- END DOX O'CLOCK COUNTDOWN -->
+
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
