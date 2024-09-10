@@ -22,7 +22,7 @@ Do you know what Next.js consists of? It’s 38 MB, ser. I can damn near guarant
 
 #### **2. The “server” part of server side rendering is hard to decentralize.**
 
-Server-side compute is far from a solved challenge, so most dApps just get hosted on Vercel forever.
+Decentralized server-side compute is far from a solved challenge, so most dApps just get hosted on Vercel forever.
 
 This makes frontends built with Next the weakest link in a full-stack dApp.
 
